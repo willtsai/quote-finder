@@ -19,7 +19,7 @@ The expected outcome is a web application that allows users to input a sentiment
 
 We plan to use the following evaluation methods for our text retrieval tool: 
 - **F1-Score**: combines both precision and recall to provide a unified view of search quality 
-- Mean Average Precision (MAP): averages the precision scores after each relevant quote is retrieved 
+- **Mean Average Precision (MAP):** averages the precision scores after each relevant quote is retrieved 
 - **Normalized Discounted Cumulative Gain (nDCG)**: evaluates the ranking quality of search results, taking into account the position and relevance of each result 
 - **Click-Through Rate (CTR) / Relevance Feedback**: we’ll share our tool with 10+ test users and ask them to click on the results that are relevant to them. Alternatively, we can create a survey to capture explicit user feedback on the results quality 
 
