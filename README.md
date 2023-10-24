@@ -1,6 +1,6 @@
-# CS 410: Text Information Systems, University of Illinois Urbana-Champaign, Fall 2023 
+# Sentiment-based search for famous quotes
 
-## Find famous quotes and respective orders based on specified sentiment
+CS 410: Text Information Systems, University of Illinois Urbana-Champaign, Fall 2023 
 
 ### Authors
 
