@@ -34,7 +34,7 @@ def parse_quotes(json_file):
     return quotes
 
 if __name__ == '__main__':
-    quotes_raw_path = 'data/quotes_raw.json'
+    quotes_raw_path = 'data/quotes.json'
     with open(quotes_raw_path, 'r') as f:
         quotes_raw_json = f.read()
     quotes = parse_quotes(quotes_raw_json)

@@ -20,7 +20,7 @@ class GoodreadsSpider(scrapy.Spider):
 if __name__ == '__main__':
     process = CrawlerProcess(settings={ # settings are used to customize the behaviour of all Scrapy components, including file format and directory
         'FEEDS': {
-            'C:/Users/masuarez/new project/quotes.json': {
+            'data/quotes.json': {
                 'format': 'json',
                 'overwrite': True,
             },
