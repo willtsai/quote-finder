@@ -1,4 +1,5 @@
 import json
+import os
 import metapy
 
 def tokenize(doc):
@@ -23,23 +24,44 @@ def parse_quotes(json_file):
     quotes_raw = json.loads(json_file)
     quotes = {}
     for quote in quotes_raw:
-        quote_id += 1
         quote_txt = quote['text'].replace('\n', '')
         quote_txt = quote_txt.replace('\u201c', '')
         quote_txt = quote_txt.replace('\u201d', '')
         author = quote['author'].replace(',','')
         author = author.replace('\n','')
+        author = author.replace('    ', '')
+        author = author.replace('  ', ' ')
         quotes[quote_id] = {"author": quote['author'], "text": quote_txt}
         quotes[quote_id] = {"author": author, "text": quote_txt}
+        quote_id += 1
     return quotes
 
 if __name__ == '__main__':
     quotes_raw_path = 'data/quotes.json'
+    quotes_map_path = 'goodreads/quotes_map.json'
+    quotes_path = 'goodreads/goodreads.dat'
+    # read quotes.json
     with open(quotes_raw_path, 'r') as f:
         quotes_raw_json = f.read()
+        f.close()
     quotes = parse_quotes(quotes_raw_json)
+    # write quotes to quotes_map.json
+    with open(quotes_map_path, 'w') as f:
+        json.dump(quotes, f)
+        f.close()
+    #clear quotes.dat
+    open(quotes_path, 'w').close()
+    # write quotes to quotes.dat
     for quote_id, quote in quotes.items():
+        author = quote['author'].strip()
+        text = quote['text'].strip()
+        print('processing quote: \"', text, '\"', ' --', author)
         doc = metapy.index.Document()
         doc.content(quote['text'])
         tokens = tokenize(doc)
-        print(quote_id, quote['author'], quote['text'], tokens)
+        with open(quotes_path, 'a') as f:
+            f.write(text + '\n')
+            f.close()
+    # recusively delete idx directory to force rebuild since data has changed
+    os.system('rm -rf idx')
+    print('done processing quotes, saved to', quotes_path, 'and', quotes_map_path)
