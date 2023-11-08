@@ -62,6 +62,7 @@ if __name__ == '__main__':
         with open(quotes_path, 'a') as f:
             f.write(text + '\n')
             f.close()
-    # recusively delete idx directory to force rebuild since data has changed
-    os.system('rm -rf idx')
     print('done processing quotes, saved to', quotes_path, 'and', quotes_map_path)
+    # recusively delete idx directory to force rebuild since data has changed
+    print('cleared `./idx` since data has changed...')
+    os.system('rm -rf idx')
