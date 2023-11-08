@@ -30,6 +30,7 @@ def run_query(query, idx, ranker):
 # function to print the results
 def print_results(results, quotes_map):
     # print the results
+    print("\nHere are the top %d results:\n" % len(results))
     quotes_dict = {}
     with open(quotes_map, 'r') as f:
         quotes_dict = json.load(f)
@@ -43,15 +44,21 @@ def print_results(results, quotes_map):
             )
 
 if __name__ == '__main__':
-    # ask user for input
-    user_input = input("Enter your search terms: ")
     # paths
     quotes_map_path = 'goodreads/quotes_map.json'
-    # index
+    # load index and ranker
     cfg = 'config.toml'
     idx = build_index(cfg)
     ranker = load_ranker(cfg)
-    query = load_query(user_input)
-    # results
-    results = run_query(query, idx, ranker)
-    print_results(results, quotes_map_path)
+
+    # terminal console interface
+    while True:
+        user_input = input("Enter your search terms (\"Q\" to quit): ")
+        query = load_query(user_input)
+        if user_input in ['Q', 'q']:
+            print("Goodbye!")
+            break
+        # results
+        results = run_query(query, idx, ranker)
+        print_results(results, quotes_map_path)
+        print("\n*************************************\n")
