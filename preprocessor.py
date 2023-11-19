@@ -38,8 +38,8 @@ def parse_quotes(json_file):
 
 if __name__ == '__main__':
     quotes_raw_path = 'data/quotes.json'
-    quotes_map_path = 'goodreads/quotes_map.json'
-    quotes_path = 'goodreads/goodreads.dat'
+    quotes_map_path = 'sentiment/quotes_map.json'
+    quotes_path = 'sentiment/quotes.dat'
     # read quotes.json
     with open(quotes_raw_path, 'r') as f:
         quotes_raw_json = f.read()
