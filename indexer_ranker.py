@@ -1,7 +1,7 @@
 import json
 import metapy
 
-class index_ranker:
+class indexer_ranker:
     # constructor
     def __init__(self, config_file):
         self.config_file = config_file
@@ -54,7 +54,7 @@ class index_ranker:
 #     quotes_map_path = 'sentiment/quotes_map.json'
 #     # load index and ranker
 #     cfg = 'config.toml'
-#     controller = index_ranker(cfg)
+#     controller = indexer_ranker(cfg)
 #     idx = controller.build_index()
 #     ranker = controller.load_ranker()
 
