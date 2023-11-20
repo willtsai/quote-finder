@@ -1,10 +1,14 @@
 import json
 import metapy
+import nltk
+from nltk.corpus import sentiwordnet as swn
 
-class indexer_ranker:
+class searcher:
     # constructor
     def __init__(self, config_file):
         self.config_file = config_file
+        nltk.download('sentiwordnet')
+        nltk.download('wordnet')
 
     # function to build the index
     def build_index(self):
@@ -31,6 +35,19 @@ class indexer_ranker:
         # use the ranker to rank the documents in the index for the given query
         results = ranker.score(idx, query, num_results=N)
         return results
+    
+    def sentiment(self, phrase):
+        words = phrase.split()
+        query = set()
+        query_string = ""
+        for word in words:
+            query.add(word)
+            for senti_synset in list(swn.senti_synsets(word)):
+                query.add(senti_synset.synset.name().split('.')[0])
+        for word in query:
+            query_string += word + " "
+        query_string = query_string.strip()
+        return query_string
 
     # function to print the results
     def print_results(self, results, quotes_map):
@@ -54,9 +71,9 @@ class indexer_ranker:
 #     quotes_map_path = 'sentiment/quotes_map.json'
 #     # load index and ranker
 #     cfg = 'config.toml'
-#     controller = indexer_ranker(cfg)
-#     idx = controller.build_index()
-#     ranker = controller.load_ranker()
+#     search = searcher(cfg)
+#     idx = search.build_index()
+#     ranker = search.load_ranker()
 
 #     # terminal console interface
 #     while True:
@@ -64,8 +81,10 @@ class indexer_ranker:
 #         if user_input in ['Q', 'q']:
 #             print("Goodbye!")
 #             break
-#         query = controller.load_query(user_input)
+#         user_input = search.sentiment(user_input)
+#         query = search.load_query(user_input)
 #         # results
-#         results = controller.run_query(query, idx, ranker)
-#         controller.print_results(results, quotes_map_path)
+#         print("Search sentiment: ", user_input)
+#         results = search.run_query(query, idx, ranker)
+#         search.print_results(results, quotes_map_path)
 #         print("\n*************************************\n")
