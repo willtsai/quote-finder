@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Output Page</title>
+    <style>
+        body {
+            background-image: url('web_background2.png');
+            background-size: cover;
+            background-position: center bottom;
+            font-family: 'Arial', sans-serif; 
+            text-align: center;
+            color: white;
+        }
+        h1, p {
+            font-family: 'Times New Roman', serif; 
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quote Finder Results</h1>
+        <p>Here are the best results for famous authors based on your feelings.</p>
+        <p>{{ output_text }}</p>
+    </div>
+</body>
+</html>

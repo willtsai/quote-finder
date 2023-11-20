@@ -23,10 +23,11 @@ class searcher:
         return ranker
 
     # function to load the query
-    def load_query(self, query_file):
-        # create a new query object based on the query file
+    def load_query(self):
+        with open('user_input.txt', 'r') as file:
+            query_content = file.read()
         query = metapy.index.Document()
-        query.content(query_file)
+        query.content(query_content)
         return query
 
     # function to run the query
@@ -34,6 +35,12 @@ class searcher:
         N=5
         # use the ranker to rank the documents in the index for the given query
         results = ranker.score(idx, query, num_results=N)
+
+        # Writing results to output.txt
+        with open('output.txt', 'w') as file:
+            for num, result in enumerate(results):
+                file.write(f"Result {num + 1}: {result}\n")
+
         return results
     
     def sentiment(self, phrase):
@@ -64,27 +71,3 @@ class searcher:
                 , "\"" + quotes_dict[str(result[0])]['text'] + "\""
                 , " --" + quotes_dict[str(result[0])]['author']
                 )
-
-## this code will go into the web app (API)
-# if __name__ == '__main__':
-#     # paths
-#     quotes_map_path = 'sentiment/quotes_map.json'
-#     # load index and ranker
-#     cfg = 'config.toml'
-#     search = searcher(cfg)
-#     idx = search.build_index()
-#     ranker = search.load_ranker()
-
-#     # terminal console interface
-#     while True:
-#         user_input = input("Enter your search terms (\"Q\" to quit): ")
-#         if user_input in ['Q', 'q']:
-#             print("Goodbye!")
-#             break
-#         user_input = search.sentiment(user_input)
-#         query = search.load_query(user_input)
-#         # results
-#         print("Search sentiment: ", user_input)
-#         results = search.run_query(query, idx, ranker)
-#         search.print_results(results, quotes_map_path)
-#         print("\n*************************************\n")
