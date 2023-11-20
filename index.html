@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quote Finder</title>
+    <style>
+        body {
+            background-image: url('web_background2.png'); /* Replace 'background.jpg' with the URL of your image */
+            background-size: cover;
+            background-position: center bottom;
+            font-family: 'Arial', sans-serif; /* Replace with your preferred font-family */
+            text-align: center;
+            color: white;
+        }
+        h1, p {
+            font-family: 'Times New Roman', serif; /* Replace with your preferred font-family */
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Quote Finder</h1>
+        <p>Your tool to find quotes from famous authors based on feelings.</p>
+        
+        <form action="search_quotes.php" method="get">
+            <label for="search_query">Enter a word or phrase:</label>
+            <input type="text" id="search_query" name="q" placeholder="E.g., happiness, love, inspiration">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</body>
+</html>
