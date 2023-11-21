@@ -23,11 +23,10 @@ class searcher:
         return ranker
 
     # function to load the query
-    def load_query(self):
-        with open('user_input.txt', 'r') as file:
-            query_content = file.read()
+    def load_query(self, input_query):
+        # create a new query object based on the query file
         query = metapy.index.Document()
-        query.content(query_content)
+        query.content(input_query)
         return query
 
     # function to run the query
@@ -35,12 +34,6 @@ class searcher:
         N=5
         # use the ranker to rank the documents in the index for the given query
         results = ranker.score(idx, query, num_results=N)
-
-        # Writing results to output.txt
-        with open('output.txt', 'w') as file:
-            for num, result in enumerate(results):
-                file.write(f"Result {num + 1}: {result}\n")
-
         return results
     
     def sentiment(self, phrase):
@@ -57,17 +50,13 @@ class searcher:
         return query_string
 
     # function to print the results
-    def print_results(self, results, quotes_map):
-        # print the results
-        print("\nHere are the top %d results:\n" % len(results))
+    def get_results_string(self, results):
+        quotes_map = 'quotes/quotes_map.json'
         quotes_dict = {}
+        results_string = ""
         with open(quotes_map, 'r') as f:
             quotes_dict = json.load(f)
             f.close()
         for result in results:
-            print(
-                "quote_id: ", result[0] 
-                , "score: ", result[1]
-                , "\"" + quotes_dict[str(result[0])]['text'] + "\""
-                , " --" + quotes_dict[str(result[0])]['author']
-                )
+            results_string += "quote_id: " + str(result[0]) + " score: " + str(result[1]) + " \"" + quotes_dict[str(result[0])]['text'] + "\" --" + quotes_dict[str(result[0])]['author'] + "\n"
+        return results_string
