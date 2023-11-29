@@ -1,3 +1,4 @@
 scrapy
 metapy
 nltk
+flask
