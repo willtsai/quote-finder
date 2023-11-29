@@ -12,4 +12,4 @@ pip install -r requirements.txt
 python web_crawler.py
 python preprocessor.py
 
-echo "Setup complete. Please run `python web_app.py` to start the web app."
+echo "Setup complete. Please run \`python web_app.py\` to start the web app."
