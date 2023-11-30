@@ -1,4 +1,5 @@
 import scrapy
+import os
 from scrapy.crawler import CrawlerProcess # CrawlerProcess is used to create a crawling process
 from scrapy.utils.project import get_project_settings
 
@@ -18,6 +19,12 @@ class GoodreadsSpider(scrapy.Spider):
             yield response.follow(next_page, self.parse)
 
 if __name__ == '__main__':
+
+    # Check if file already exists and deletes it before crawling again
+    file_path = 'data/quotes.json'
+    if os.path.exists(file_path):
+        os.remove(file_path)
+
     process = CrawlerProcess(settings={ # settings are used to customize the behaviour of all Scrapy components, including file format and directory
         'FEEDS': {
             'data/quotes.json': {
