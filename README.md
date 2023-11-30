@@ -29,31 +29,35 @@ Our team project will be focused on the development of a unique search engine / 
 3. Setup your Conda command line prompt:
 
     ```bash
-    export CONDA_DIR=conda info | grep -i 'base environment' && source $CONDA_DIR/etc/profile.d/conda.sh
+    export CONDA_DIR=conda info | grep -i 'base environment'
+    source $CONDA_DIR/etc/profile.d/conda.sh
     ```
 
-4. Install and activate the Python 3.5 Conda environment:
+4. Create and activate a Flask environment for the web application:
 
     ```bash
-    conda activate py35 && conda install python=3.5
+    python -m venv .venv
+    . .venv/bin/activate
     ```
 
-5. Install the project dependencies:
+5. Install and activate the Python 3.5 Conda environment:
+
+    ```bash
+    conda activate py35
+    conda install python=3.5
+    ```
+
+6. Install the project dependencies:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-6. Run the web crawler and preprocessor to prepare the quotes data:
+7. Run the web crawler and preprocessor to prepare the quotes data:
 
     ```bash
-    python web_crawler.py && python preprocessor.py
-    ```
-
-7. Create and activate a Flask environment for the web application:
-
-    ```bash
-    python -m venv .venv && . .venv/bin/activate
+    python web_crawler.py
+    python preprocessor.py
     ```
 
 8. Run the web app:
