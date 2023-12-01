@@ -5,7 +5,7 @@
     <title>Quote Finder</title>
     <style>
         body {
-            background-image: url('web_background2.png'); 
+            background-image: url('static/web_background2.png'); 
             background-size: cover;
             background-position: center bottom;
             font-family: 'Arial', sans-serif; 
@@ -35,7 +35,8 @@
         <p>Your tool to find quotes from famous authors based on feelings.</p>
         
         <form action="/save" method="post">
-            <textarea name="user_input" rows="4" cols="50"></textarea>
+            <textarea name="user_input" rows="1" cols="50" placeholder="E.g., happiness, love, inspiration"></textarea>
+            <br>
             <br>
             <input type="submit" value="Submit">
         </form>
