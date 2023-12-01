@@ -58,5 +58,8 @@ class searcher:
             quotes_dict = json.load(f)
             f.close()
         for result in results:
-            results_string += "quote_id: " + str(result[0]) + " score: " + str(result[1]) + " \"" + quotes_dict[str(result[0])]['text'] + "\" --" + quotes_dict[str(result[0])]['author'] + "\n"
+            quote_id = str(result[0])
+            quote_text = quotes_dict[quote_id]['text'].strip()
+            author_name = quotes_dict[quote_id]['author'].strip()
+            results_string += f'"{quote_text}" -- {author_name}<br>'
         return results_string
