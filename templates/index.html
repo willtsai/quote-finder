@@ -5,9 +5,14 @@
     <title>Quote Finder</title>
     <style>
         body {
+            margin: 0; /* Removes default margin */
+            padding: 0; /* Removes default padding */
             background-image: url('static/web_background2.png'); 
             background-size: cover;
             background-position: center bottom;
+            background-repeat: no-repeat; /* Prevents image from repeating */
+            background-attachment: fixed; /* Keeps the background fixed during scrolling */
+            font-family: 'Arial', sans-serif;
             font-family: 'Arial', sans-serif; 
             text-align: center;
             color: white;
@@ -20,7 +25,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.9);
             padding: 20px;
             border-radius: 10px;
         }
@@ -35,7 +40,7 @@
         <p>Your tool to find quotes from famous authors based on feelings.</p>
         
         <form action="/save" method="post">
-            <textarea name="user_input" rows="1" cols="50" placeholder="E.g., happiness, love, inspiration"></textarea>
+            <textarea name="user_input" rows="1" cols="50" placeholder="E.g., happy, in love, sad, nostalgic"></textarea>
             <br>
             <br>
             <input type="submit" value="Submit">
