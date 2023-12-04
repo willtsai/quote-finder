@@ -7,7 +7,6 @@
     - Wei-Lun (Will) Tsai | [wltsai2@illinois.edu](wltsai2@illinois.edu) --> team captain 
 
 - University of Illinois Urbana-Champaign | Fall 2023
-
 - CS 410: Text Information Systems | ChengXiang Zhai
 
 - Code Repo | [github.com/.../quote-finder](https://github.com/willtsai/quote-finder)
