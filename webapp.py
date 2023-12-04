@@ -24,10 +24,10 @@ def save_input():
     print("Query loaded...")
     print(query.content())
     print("Running query...")
-    results = search_instance.run_query(query, idx, ranker)  # Runs the query
+    results = search_instance.run_query(query, idx, ranker, N=10)  # Runs the query
     results_string = search_instance.results_to_string(results) # Gets the results as a string
     print("Results string: ", results_string)
     return render_template('output.html', output_text=results_string.split('\n')) # Renders the output page
 
 if __name__ == '__main__':  
-   app.run() # Runs the app
+   app.run(threaded=False) # Runs the app
