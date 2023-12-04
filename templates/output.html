@@ -5,7 +5,7 @@
     <title>Output Page</title>
     <style>
         body {
-            background-image: url('web_background2.png');
+            background-image: url('static/web_background2.png');
             background-size: cover;
             background-position: center bottom;
             font-family: 'Arial', sans-serif; 
@@ -31,9 +31,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>Quote Finder Results</h1>
-        <p>Here are the best results for famous authors based on your feelings.</p>
-        <p>{{ output_text }}</p>
+        <h1>Famous quotes that reflect your feelings:</h1>
+        {% for para in output_text %}
+            <p>{{para}}</p>
+        {% endfor %}
+        <form action="/" method="get">
+            <input type="submit" value="Find Another Quote">
+        </form>
     </div>
 </body>
 </html>

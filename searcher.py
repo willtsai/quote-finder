@@ -30,8 +30,7 @@ class searcher:
         return query
 
     # function to run the query
-    def run_query(self, query, idx, ranker):
-        N=5
+    def run_query(self, query, idx, ranker, N=5):
         # use the ranker to rank the documents in the index for the given query
         results = ranker.score(idx, query, num_results=N)
         return results
@@ -50,7 +49,7 @@ class searcher:
         return query_string
 
     # function to print the results
-    def get_results_string(self, results):
+    def results_to_string(self, results):
         quotes_map = 'quotes/quotes_map.json'
         quotes_dict = {}
         results_string = ""
@@ -58,8 +57,5 @@ class searcher:
             quotes_dict = json.load(f)
             f.close()
         for result in results:
-            quote_id = str(result[0])
-            quote_text = quotes_dict[quote_id]['text'].strip()
-            author_name = quotes_dict[quote_id]['author'].strip()
-            results_string += f'"{quote_text}" -- {author_name}<br>'
+            results_string += " \"" + quotes_dict[str(result[0])]['text'] + "\" --" + quotes_dict[str(result[0])]['author'] + "\n"
         return results_string
