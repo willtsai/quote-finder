@@ -1,3 +1,11 @@
+# Project specific ignores
+quotes/quotes_map.json
+data/quotes.json
+.vscode/
+idx/
+.DS_Store
+local-test.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -158,8 +166,3 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
-
-.vscode/
-idx/
-.DS_Store
-local-test.py
