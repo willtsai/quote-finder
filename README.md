@@ -23,6 +23,19 @@ The architecture consists of three main backend components: (1) web crawler, (2)
 
 *Figure 1: Overall architecture diagram for Quote Finder*
 
+### Distribution of Work
+
+- Manuel Suarez Lunar
+    - Web crawler
+    - Web application
+    - User interface
+    - Powerpoint presentation
+
+- Wei-Lun (Will) Tsai
+    - Preprocessor
+    - Searcher
+    - Code documentation
+
 ### Web Crawler
 
 The web crawler is implemented using the Scrapy Python library in `web_crawler.py`. It crawls the Goodreads quotes website and extracts quotes, authors, and tags for each quote, and then follows the "next" link to crawl subsequent pages. The quotes data is output to a JSON file that is picked up by the preprocessor.
