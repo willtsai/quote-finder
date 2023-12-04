@@ -1,5 +1,6 @@
 # Project specific ignores
 quotes/quotes_map.json
+quotes/quotes.dat
 data/quotes.json
 .vscode/
 idx/
