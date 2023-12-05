@@ -54,7 +54,7 @@ The preprocessor is implemented in Python, and the code can be found in the `pre
 ### Searcher
 
 The searcher is implemented in Python, and the code can be found in the `searcher.py` file. This is the core component of the Quote Finder application with functions to perform the key processes of the application:
-1. `sentiment()` function to parse the user input into a broader set of opinions leveraging the [`nltk.corpus.sentiwordnet`](https://www.nltk.org/howto/sentiwordnet.html) APIs and dataset from the NTLK Python library.
+1. `sentiment()` function to parse the user input into a broader set of opinions leveraging the [`nltk.corpus.sentiwordnet`](https://www.nltk.org/howto/sentiwordnet.html) APIs and dataset from the NLTK Python library.
 2. `build_index()` to build the inverted index, `load_ranker()` to load a ranker, `load_query()` to load a query, and `run_query()` to search the index with a given query which returns a ranked list of quotes as the result.
 3. `results_to_string()` function to convert the results into a string format that can be displayed in the user interface.
 
