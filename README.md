@@ -15,6 +15,12 @@
 
 Quote Finder is a unique search engine / text retrieval tool specifically tailored for literature and quote enthusiasts. Users input a particular sentiment or emotion and then Quote Finder searches the catalog of famous quotes available on [goodreads.com/quotes](https://www.goodreads.com/quotes) to return a ranked list of quotes and respective authors resonating with the user's specified sentiment. 
 
+Self-evaluation. Have you completed what you have planned? Have you got the expected outcome? If not, discuss why.
+
+## Self-Evaluation
+
+We have completed four of our initially proposed goals with the implementation of a working web crawler, preprocessor, searcher, and web application. These tasks made up a bit more than the 20 hours of coding per team member that we had originally estimated due to cycles being spent on integrating the searcher with the web app and then debugging. Thus, we weren't able to complete our two stretch goals of implementing a feedback component as well as hosting the application on Azure. However, we were able to complete the core functionality of our application with a satisfactory set of initial results. In addition to applying the methods learned in this course, we also got to learn how to build a web crawler, leverage a sentiment library, and build a web application. Aside from our two stretch goals, the only other enhancements we would make given more time and resources are to extend sentiment analysis to the quotes themselves as well as tweaking the ranker to get further improvement in the quality of the results.
+
 ## Architecture
 
 The architecture consists of three main backend components: (1) web crawler, (2) preprocessor, (3) searcher, (4) web application, and (5) user interface. The web crawler collects raw quotes data from the Goodreads quotes website, which is then processed by the preprocessor to extract, normalize, and tokenize the quotes along with their corresponding metadata. The searcher parses the user sentiment input, builds an inverted index, then searches against the index to return a set of ranked quotes based on relevance to a given query. A web application (API) is built on top of these components, which is then fronted by a user interface for users to interact with the application.
@@ -24,6 +30,8 @@ The architecture consists of three main backend components: (1) web crawler, (2)
 *Figure 1: Overall architecture diagram for Quote Finder*
 
 ### Distribution of Work
+
+Between the two team members, the coding and documentation work was distributed as follows:
 
 - Manuel Suarez Lunar
     - Web crawler
@@ -114,3 +122,27 @@ The user interface is implemented using HTML templates in the `templates` direct
     ```
 
 9. Navigate to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in a web browser to interact with the Quote Finder web application.
+
+## Example Test Cases
+
+Here are some example queries to try out in the Quote Finder web application:
+
+### Test Case 1
+
+**Input:** "inspirational and grateful"
+
+<img src="./static/input-1.png" alt="test case 1 input" width="600" />
+
+**Expected Output:**
+
+<img src="./static/output-1.png" alt="test case 1 output" width="600" />
+
+### Test Case 2
+
+**Input:** "frustrated and disappointed"
+
+<img src="./static/input-2.png" alt="test case 2 input" width="600" />
+
+**Expected Output:**
+
+<img src="./static/output-2.png" alt="test case 2 output" width="600" />
