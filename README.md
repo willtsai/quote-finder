@@ -68,39 +68,33 @@ The user interface is implemented using HTML templates in the `templates` direct
 
 ## Setup Instructions
 
-0. Install [Conda](https://docs.conda.io/en/latest/miniconda.html) and [Git](https://git-scm.com/downloads) if you don't already have them installed.
+1. Install [Conda](https://docs.conda.io/en/latest/miniconda.html) and [Git](https://git-scm.com/downloads) if you don't already have them installed.
 
-1. If you are running this on an Apple Silicon Mac (e.g. M1, M2 chips), adjust your Conda config:
+2. If you are running this on an Apple Silicon Mac (e.g. M1, M2 chips), adjust your Conda config:
 
     ```bash
     conda config --env --set subdir osx-64
     ```
 
-2. Create a Python 3.5 Conda environment:
+3. Create a Python 3.5 Conda environment and activate it:
 
     ```bash
-    conda create -n py35
+    conda create -n py35 python=3.5
+    conda activate py35
     ```
 
-3. Setup your Conda command line prompt:
+4. Setup your Conda command line prompt:
 
     ```bash
     export CONDA_DIR=conda info | grep -i 'base environment'
     source $CONDA_DIR/etc/profile.d/conda.sh
     ```
 
-4. Create and activate a Flask environment for the web application:
+5. Create and activate a Flask environment for the web application:
 
     ```bash
     python -m venv .venv
     . .venv/bin/activate
-    ```
-
-5. Install and activate the Python 3.5 Conda environment:
-
-    ```bash
-    conda activate py35
-    conda install python=3.5
     ```
 
 6. Install the project dependencies:
