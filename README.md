@@ -68,6 +68,8 @@ The user interface is implemented using HTML templates in the `templates` direct
 
 ## Setup Instructions
 
+0. Install [Conda](https://docs.conda.io/en/latest/miniconda.html) and [Git](https://git-scm.com/downloads) if you don't already have them installed.
+
 1. If you are running this on an Apple Silicon Mac (e.g. M1, M2 chips), adjust your Conda config:
 
     ```bash
