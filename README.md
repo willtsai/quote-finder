@@ -77,10 +77,17 @@ The user interface is implemented using HTML templates in the `templates` direct
 
 1. Install [Conda](https://docs.conda.io/en/latest/miniconda.html) and [Git](https://git-scm.com/downloads) if you don't already have them installed.
 
-    > Note: If you are running this on an Apple Silicon Mac (e.g. M1, M2 chips), adjust your Conda config after installation:
+    > Note: if you are running this on an Apple Silicon Mac (e.g. M1, M2 chips), adjust your Conda config after installation:
 
     ```bash
     conda config --env --set subdir osx-64
+    ```
+
+    > Note: if you are running this on a Linux machine, adjust your Conda environment variables after installation:
+
+    ```bash
+    export CONDA_DIR=conda info | grep -i 'base environment'
+    source $CONDA_DIR/etc/profile.d/conda.sh
     ```
 
 1. Create and activate a Python 3.5 Conda environment:
