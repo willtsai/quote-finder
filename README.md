@@ -10,7 +10,8 @@
 - CS 410: Text Information Systems | ChengXiang Zhai
 
 - Code Repo | [github.com/.../quote-finder](https://github.com/willtsai/quote-finder)
-- Demo Video | [TBD](TODO)
+- Demo Video | [final presentation](https://drive.google.com/file/d/1bw_fsboU2rEsjHIbS7dBuFE5-w_5QDTT/view?usp=sharing)
+- PPT slides | [final deck](https://github.com/willtsai/quote-finder/blob/main/course-deliverables/project-final-presentation-slides.pptx)
 
 ## Overview
 
