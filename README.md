@@ -68,55 +68,55 @@ The user interface is implemented using HTML templates in the `templates` direct
 
 ## Setup Instructions
 
+1. Clone the code repository and navigate to the project directory:
+
+    ```bash
+    git clone https://github.com/willtsai/quote-finder.git
+    cd quote-finder
+    ```
+
 1. Install [Conda](https://docs.conda.io/en/latest/miniconda.html) and [Git](https://git-scm.com/downloads) if you don't already have them installed.
 
-2. If you are running this on an Apple Silicon Mac (e.g. M1, M2 chips), adjust your Conda config:
+    > Note: If you are running this on an Apple Silicon Mac (e.g. M1, M2 chips), adjust your Conda config after installation:
 
     ```bash
     conda config --env --set subdir osx-64
     ```
 
-3. Create a Python 3.5 Conda environment and activate it:
+1. Create and activate a Python 3.5 Conda environment:
 
     ```bash
     conda create -n py35 python=3.5
     conda activate py35
     ```
 
-4. Setup your Conda command line prompt:
-
-    ```bash
-    export CONDA_DIR=conda info | grep -i 'base environment'
-    source $CONDA_DIR/etc/profile.d/conda.sh
-    ```
-
-5. Create and activate a Flask environment for the web application:
+1. Create and activate a Flask environment for the web application:
 
     ```bash
     python -m venv .venv
     . .venv/bin/activate
     ```
 
-6. Install the project dependencies:
+1. Install the project dependencies:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-7. Run the web crawler and preprocessor to prepare the quotes data:
+1. Run the web crawler and preprocessor to prepare the quotes data:
 
     ```bash
     python web_crawler.py
     python preprocessor.py
     ```
 
-8. Run the web app:
+1. Run the web app:
 
     ```bash
     python webapp.py
     ```
 
-9. Navigate to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in a web browser to interact with the Quote Finder web application.
+1. Navigate to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in a web browser to interact with the Quote Finder web application.
 
 ## Example Test Cases
 
