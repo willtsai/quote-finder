@@ -2,6 +2,7 @@ import json
 import os
 import metapy
 
+# function to tokenize a document
 def tokenize(doc):
     tok = metapy.analyzers.ICUTokenizer(suppress_tags=True)
     tok = metapy.analyzers.LowercaseFilter(tok)
@@ -36,6 +37,7 @@ def parse_quotes(json_file):
         quote_id += 1
     return quotes
 
+# main function to run the preprocessing script
 if __name__ == '__main__':
     quotes_raw_path = 'data/quotes.json'
     quotes_map_path = 'quotes/quotes_map.json'

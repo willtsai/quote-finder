@@ -3,8 +3,9 @@ import metapy
 import nltk
 from nltk.corpus import sentiwordnet as swn
 
+# searcher class to handle the index, ranker, and query
 class searcher:
-    # constructor
+    # constructor that takes in a config file and initializes the searcher
     def __init__(self, config_file):
         self.config_file = config_file
         nltk.download('sentiwordnet')
@@ -35,6 +36,7 @@ class searcher:
         results = ranker.score(idx, query, num_results=N)
         return results
     
+    # function to mine the input for sentiment
     def sentiment(self, phrase):
         words = phrase.split()
         query = set()
